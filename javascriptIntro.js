@@ -1,4 +1,3 @@
-/*
 
 Javascript	runs in the browser, Case sensitive language.
 Interpreted Language, Does not need compilation. Runs line by line.
@@ -474,4 +473,4 @@ function validate() {
 
 
 
-*/
+
