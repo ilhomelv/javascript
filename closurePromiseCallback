@@ -1,0 +1,105 @@
+JavaScript Closure
+
+<script type="text/javascript">
+
+//example1: 
+var passed = 3;
+var addTo = function (passed) {
+	var inner = 2;
+	return passed + inner;
+};
+document.write("passed: " + addTo  +  "<br><br>");
+
+//example2:
+var addTo2 = function(passed2) {
+	var add = function(inner) {
+		return passed + inner;
+	};
+	return add;
+};
+
+var two = new addTo(9);
+document.write(new addTo2(2));
+document.write("<br>" + two);
+
+
+</script>
+
+
+JavaScript Promises
+
+example:
+<script type="text/javascript">
+let promiseToCleanTheRoom = new Promise(function(resolve, reject) {
+	//cleaning the room
+	let isClean = true;
+	
+	if(isClean) {
+		resolve("Clean");
+	} else {
+		reject("Not Clean");
+	}
+});
+
+promiseToCleanTheRoom.then(function(fromResolve) {
+		document.write("room is: " + fromResolve);
+}).catch(function(fromReject) {
+		document.write("room is: " + fromReject);
+})
+</script>
+
+CallBack functions	you can pass other functions into functions as args and 				execute,
+			Y function is executing function X by calling it as argument inside Y
+example1:
+let x = function() {
+    document.write("im called from inside a function ")
+    };
+    let y = function(callback) {
+      document.write("do smth");
+      callback();
+    }
+    y(x);
+
+example2:
+let calc = function(num1, num2, calcType) {
+	  if (calcType == "add") {
+	    return num1 + num2;
+	  } else if (calcType == "multiply") {
+	    return num1 * num2;
+	  }
+
+	};
+	document.write(calc(2, 3, "add"));
+
+example3:
+let add = function(a,b) {
+	return a+b;
+}
+let multiply = function(a,b) {
+	return a*b;
+}
+let calc = function(num1, num2, callback) {
+	return callback(num1, num2);
+}
+
+document.write(calc(2,3,add));
+Anonymous Function: 	a Function that has no name
+
+example1:
+//anonymous function, function that has no name
+document.write("<br><br>" + calc(4,6, function(a,b) { return b-a; } ));
+
+example2:
+//sort string by alphabetical order
+var myArr = [{num: 5, str: "apple"},{num: 7, str: "cabbage"}, {num: 1, str:"ban"}];
+myArr.sort(function(val1, val2) {
+	if(val1.str > val2.str) {
+		return -1;
+	} else {
+		return 1;
+	}
+	
+});
+document.write(myArr);
+
+example1example
