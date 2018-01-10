@@ -26,11 +26,6 @@ Printing Statement:
 document.write(“welcome”);	//welcome
 we can use all html tags and css properties but we should use them inside the document.write
 
-Comments:
-User understanding purpose. They don’t get printed in the output.
-// single line comment
-/* */ multi line comment
-
 example:
 <html><head>
 <script type=“text/javascript”>
@@ -122,6 +117,360 @@ for(i=1; i<=5; i++) {
 }
 
 </script>
+
+
+Functions 	Block of codes which can be executed N number of times. 
+		They can be divided into 2 types
+
+Pre defined functions:  functions that are already exist and predefined inside javascript
+String,  Date, Math.
+
+example:
+<script type="text/javascript">
+
+//String Functions
+var s1 = "welcome to Class";
+document.write("<h2>" + s1 + "<br><br>");
+document.write("String Length: "  + s1.length + " characters<br>");
+document.write("Character At index 8 is: "  + s1.charAt(8) + "<br>");
+document.write("Index of e: " + s1.indexOf("e") + "<br>");
+document.write("Last index of e: " + s1.lastIndexOf("e") + "<br>");
+document.write("Upper case: " + s1.toUpperCase() + "<br>");
+document.write("Lower case: " + s1.toLowerCase() + "<br>");
+document.write("Bold " + s1.bold() + "<br>");
+document.write("Font Color " + s1.fontcolor("red") + "<br>");
+document.write("Font Size: " + s1.fontsize("7") + "<br><br><br>");
+
+
+//Date Functions
+var d = new Date();
+document.write(d + "<br>");
+document.write("Date: " + d.getDate()+"<br>");
+document.write("Day: " + d.getDay() + "<br>");
+document.write("Year: " + d.getFullYear() + "<br>" );
+document.write("Time: " + d.getHours() + "<br>");
+document.write("Minutes: " + d.getMinutes() + "<br><br><br>");
+
+
+//Math Functions
+document.write("Pi value: " + Math.PI + "<br>");
+document.write("Square root of Two: " + Math.SQRT2 + "<br>");
+document.write("Absolute Value: " + Math.abs(-8) + "<br>");
+document.write("Ceil Value: " + Math.ceil(15.66) + "<br>");
+document.write("Floor Value: " + Math.floor(15.66) + "<br>");
+document.write("Round Off: " + Math.round(12.5) + "<br>");
+document.write("Maximum Value: " + Math.max(10,5,6,8,9,12,15,4) + "<br>");
+document.write("Minimum Value: " + Math.min(10,5,6,8,9,12,15,4) + "<br>");
+document.write("Power Value: " + Math.pow(2,5) + "<br>");
+
+</script>
+
+
+
+
+
+User defined functions:  function functionName(arguments) { statement; return; }
+
+example:
+
+<script type="text/javascript">
+
+//User Defined Functions
+
+//example1:
+function display() {
+	document.write("welcome<br>");
+}
+//call function
+display();
+display();
+
+//example2:
+function add(a,b) {
+	var c = a + b;
+	document.write("<br>Addition: a+b:  " + c);
+}
+//call function
+add(60,40);
+add(100,120);
+
+
+//example3:
+function sum() {
+	var a = parseInt(prompt("Enter Number: "));
+	var b = parseInt(prompt("Enter Number: "));
+	var c = a + b;
+	return c;
+}
+var result = sum();
+document.write("<br><br>Sum: " + result);
+
+
+//example4:
+function total(a,b) {
+	var c = a + b;
+	return c;
+}
+var result = total(70,20);
+document.write("<br><br>Total: " + result);
+
+
+//example5: Function calling Function
+function display() {
+	document.write("<br><br>im from display ");
+	show();
+}
+function show() {
+	document.write("<br>im from show ");
+	hello();
+}
+function hello() {
+	document.write("<br>im from hello ");
+}
+display();
+
+</script>
+
+
+Actions and Events
+Mouse Events:
+onclick			onmouseout
+ondbclick		onmousedrag
+onmouseover	
+
+Keyboard Events:
+onkeypress
+onkeyup
+onkeydown
+
+<body> tag == > onload
+<form> tag ==> onsubmit
+textboxes, textarea ==> keyboard events, onfocus(),  onblur()
+<select> tag ==> onchange()
+
+Popup Ads Creation
+window.open(“path”, “windowname”, “Parameters”);
+
+example:
+<script type="text/javascript">
+
+function show() {
+	var r = confirm("Do u want to see Ad?");
+	if(r == true) {
+		window.open("http://google.com", "w1", "width=400, height=200, scrollbar=0");
+	} else {
+		alert("Pressed CANCEL button");
+	}
+}
+
+</script>
+</head>
+<body>
+<button onclick="show();">Click Me
+</button>
+
+
+Forms:
+
+example:
+<script type="text/javascript">
+function add(a,b) {
+	var a = parseInt(form1.text1.value);
+	var b = parseInt(form1.text2.value);
+	var c = a+b;
+	document.getElementById("theResultsPintedHere").innerHTML	="Addition: " + c;
+	//print on the same page inside <div></div>
+}
+function substr(a,b) {
+	var a = parseInt(form1.text1.value);
+	var b = parseInt(form1.text2.value);
+	var c = a-b;
+	//document.write("Substract: " + c);   prints on new page
+	document.getElementById("theResultsPintedHere").innerHTML	="Substract: " + c;
+}
+function mult(a,b) {
+	var a = parseInt(form1.text1.value);
+	var b = parseInt(form1.text2.value);
+	var c = a*b;
+	document.getElementById("theResultsPintedHere").innerHTML	="Multiply: " + c;
+}
+function divide(a,b) {
+	var a = parseInt(form1.text1.value);
+	var b = parseInt(form1.text2.value);
+	var c = a/b;
+	document.getElementById("theResultsPintedHere").innerHTML	="Division: " + c;
+}
+</script>
+</head>
+<body>
+<form name = "form1">
+<table align = "center">
+<tr><td>Enter Number</td><td><input type=text name=text1 size=10></td></tr>
+<tr><td>Enter Number</td><td><input type=text name=text2 size=10></td></tr>
+<tr>
+<td colspan=4>
+<input type=button name=b1 value=Addition onclick=add(); >
+<input type=button name=b2 value=Substract onclick=substr(); >
+<input type=button name=b3 value=Multiply onclick=mult(); >
+<input type=button name=b4 value=Division onclick=divide(); >
+</td>
+</tr>
+</table>
+</form>
+<br>
+<br>
+<br>
+<div id="theResultsPintedHere" style="text-align:center; font-size:40px;  color:blue"; ></div>
+
+
+
+example2:
+<script type="text/javascript">
+//Select option
+function total() {
+	var choice = form1.courses.selectedIndex;
+	if(choice == 0)
+		form1.tFee.value="";
+	if(choice == 1)
+		form1.tFee.value= "500USD";
+	if(choice == 2)
+		form1.tFee.value= "1000USD";
+	if(choice == 3)
+		form1.tFee.value= "1500USD";
+}
+
+//Radio Button 
+function conc(i) {
+	if(i == 1) 
+		form1.cFee.value="300";
+	if(i == 2) 
+		form1.cFee.value="500";
+	if(i == 3)
+		form1.cFee.value="900";
+}
+
+function due() {
+	var total = parseInt(form1.tFee.value);
+	var dis = parseInt(form1.cFee.value);
+	var paid = parseInt(form1.paid.value);
+	var due = total - (dis+paid); 
+	if(due>=0)
+		form1.dFee.value=due;
+	else {
+		alert("invalid amount");
+	}
+}
+</script>
+
+</head>
+<body>
+
+<form name="form1">
+<table align=center>
+
+<!--  Select Option -->
+<tr><td> Course</td>
+<td><select name = courses  onchange = total(); >
+<option> --- select---
+<option>Ms Office
+<option>Accounts
+<option>Multimedia
+</option></select>
+</td></tr>
+<tr><td>Total Fee: </td><td><input type=text name=tFee readonly></td></tr>
+
+<!--  Radio Button -->
+<tr><td>Caste </td>
+<td><input type=radio name=radio1 onclick=conc(1); >OC		<!-- passing args to function -->
+<input type=radio name=radio1 onclick=conc(2);>BC
+<input type=radio name=radio1 onclick=conc(3);>ST
+</td></tr>
+<tr><td> Concession Fee </td>
+<td><input type=text name=cFee readonly>
+<tr><td> Paid Fee</td>
+<td><input type=text name=paid ></td></tr>
+<tr>
+<tr><td> Due Fee</td>
+<td><input type=text name=dFee readonly></td></tr>
+<tr><td colspan =2><input type=button name=submit value=Calculate onclick=due(); ></td></tr>
+</table>
+</form>
+
+
+example3: Form Validation 
+<script type="text/javascript">
+function validate() {
+	var uid = form1.userId.value;
+	var email = form1.email.value;
+	var atpos = email.indexOf("@");
+	var dotpos = email.lastIndexOf(".");
+	var pass = form1.pass.value;
+	var cpass = form1.confirmPass.value;
+	var address = form1.address.value;
+	var city = form1.city.selectedIndex;
+	var mobile = form1.mobile.value;
+	
+	if(uid.length == 0 || uid == " ") {
+		alert("Please enter username");
+		return false;
+	} else if(email.lenth == 0 || email == " ") {
+		alert("Please Enter email");
+		return false;
+	} else if(atpos < 1 || (dotpos - atpos) <= 2) {
+		alert("Invalid email");
+		return false;		
+	} else if(pass.length == 0 || pass == " ") {
+		alert("Please Enter password");
+		return false;
+	} else if(cpass.length == 0 || cpass == " ") {
+		alert("Please Enter confirm password");
+		return false;
+	} else if(pass != cpass) {
+		alert("Passwords dont match!");
+		return false;
+	} else if(address.length == 0 || address == " ") {
+		alert("Please enter address");
+		return false;
+	} else if(city.length == 0 || city == " ") {
+		alert("Please choose city");
+		return false;
+	} else if(mobile.length == 0 || mobile == " ") {
+		alert("Please enter mobile");
+		return false;
+	} else {
+		return true;
+	}
+}
+
+
+
+
+
+
+</script>
+</head>
+<body>
+<form name = form1 onsubmit="return validate();" action="Form3Vsuccess.html;">  
+<!-- return true or false from function validate() -->
+<table>
+<!-- Form Validation -->
+<tr><td>User id</td><td><input type=text name=userId></td></tr>
+<tr><td>Email</td><td><input type=text name=email></td></tr>
+<tr><td>Password</td><td><input type=text name=pass></td></tr>
+<tr><td>Confirm Pass</td><td><input type=text name=confirmPass></td></tr>
+<tr><td>Address</td><td><textarea name=address rows=5 cols=20></textarea></td></tr>
+<tr><td>City</td><td><select name=city><option>---select---
+<option>New York
+<option>Tokyo
+</option>
+</select></td></tr>
+<tr><td>Mobile</td><td><input type=text name=mobile></td></tr>
+<tr><td colspan=2><input type=submit name=sbutton value=Register></td></tr>
+</table>
+</form>
+
+
+
 
 
 
