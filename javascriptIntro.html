@@ -489,5 +489,19 @@ Difference between: == and === operators
 == compares  compares the Values ONLY
 === compares compares the Value and Type
 
+Difference between keyword let and const:
+Once variable defined as const, then it can NOT be re assigned to another value/reference.
+example:
+let l =1;
+l = 2;
+const c = 1;
+c = 2;		//ERROR
+
+const c = [1,2];
+c.push(3);		//[1, 2, 3]  Values can be added or removed, 
+c = [1, 2, 3];		//ERROR c can not be reassigned
+console.log(c);
+	
+	
 
 
