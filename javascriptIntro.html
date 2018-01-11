@@ -471,6 +471,23 @@ function validate() {
 
 
 
+Difference between keyword var and let:
+let keyword has a block scope, variable defined with keyword let will die 
+	at the end of the block defined, 
+var keyword has a functions cope, it will die at the end of the function that its defined.
+var variables gets hoisted, let variables doesn’t get hoisted.
+
+example:
+if(true) {
+	console.log(v);	//output be undefined,
+	console.log(m);	//output be error,
+	var v = 2;
+	let m = 1;
+}
+	
+Difference between: == and === operators
+== compares  compares the Values ONLY
+=== compares compares the Value and Type
 
 
 
